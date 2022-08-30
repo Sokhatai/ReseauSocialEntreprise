@@ -1,0 +1,36 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 500px;
+  height: 200px;
+  background-color: #ffd7d7;
+  padding: 20px;
+  border: solid #fd2d01 4px;
+  border-radius: 20px;
+}
+
+h2 {
+  align-self: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #fd2d01;
+}
+
+input {
+  align-self: center;
+  width: 300px;
+  margin: 0 10% 10px;
+  height: 50px;
+}
+
+button {
+  align-self: center;
+  width: 300px;
+  font-size: 20px;
+  padding: 0 20px;
+  margin: 0 10%;
+  background-color: #4e5166;
+  color: white;
+}
