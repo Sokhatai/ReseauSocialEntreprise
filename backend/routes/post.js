@@ -12,7 +12,7 @@ router.post('/', auth, multer, postCtrl.createPost);
 
 router.get('/', auth, postCtrl.getAllPost);
 
-//router.get('/:id', auth, postCtrl.getOnePost);
+router.get('/:id', auth, postCtrl.getOnePost);
 
 router.put('/:id', auth, multer, postCtrl.modifyPost);
 

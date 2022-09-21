@@ -1,9 +1,14 @@
+import { useState } from "react";
 import "../style/formulaire.css";
 
 export default function Formulaire({
-  handleSubmit,
+  fonctionDuFormulaire,
   actionDuFormulaire,
-  nomDuFormulaire
+  nomDuFormulaire,
+  email,
+  setEmail,
+  password,
+  setPassword
 }) {
   //state
 
@@ -12,13 +17,25 @@ export default function Formulaire({
   //affichage (render)
 
   return (
-    <form action="submit" onSubmit={handleSubmit}>
-      <h2>{nomDuFormulaire}</h2>
-      <input type="text" placeholder="EMail" />
+    <div id="formForm">
+      <form action="submit" onSubmit={fonctionDuFormulaire}>
+        <h2>{nomDuFormulaire}</h2>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="EMail"
+        />
 
-      <input type="text" placeholder="Mot de passe" />
-
-      <button action="submit">{actionDuFormulaire}</button>
-    </form>
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="Mot de passe"
+        />
+        <div id="reponseServeur"></div>
+        <input type="submit" value={actionDuFormulaire} />
+      </form>
+    </div>
   );
 }

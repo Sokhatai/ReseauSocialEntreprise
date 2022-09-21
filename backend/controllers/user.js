@@ -11,7 +11,7 @@ exports.signup = (req, res, next) => {
         .then(hash => {
             const user = new User({
                 email: req.body.email,
-                password: hash
+                password: hash,
             });
             user.save()
                 .then(() => res.status(201).json({ message: 'utilisateur créé !'}))
@@ -21,7 +21,6 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-    console.log(process.env.TOKEN_SECRET);
     User.findOne({email: req.body.email})
         .then(user => {
             if (user === null) {
@@ -51,3 +50,22 @@ exports.login = (req, res, next) => {
             res.status(500).json( {error} );
         })
 };
+
+exports.getUser = (req, res, next) => {
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+    const userId = decodedToken.userId;
+    User.findOne({
+      _id: userId
+    }).then(
+      (user) => {
+        res.status(200).json(user);
+      }
+    ).catch(
+      (error) => {
+        res.status(404).json({
+          error: error
+        });
+      }
+    );
+  };

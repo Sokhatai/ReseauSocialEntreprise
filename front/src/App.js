@@ -2,10 +2,14 @@ import { useRef, useState } from "react";
 import AffichagePost from "./components/AffichagePost";
 import Formulaire from "./components/Formulaire";
 import Header from "./components/Header";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./style/app.css";
 
 function App() {
   // state (état, données)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -31,9 +35,26 @@ function App() {
 
   // comportements
 
-  const handleSubmit = (event) => {
+  async function registerUser(event) {
+    fetch("http://localhost:3000/api/signup", {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    });
+  }
+
+  const handleSubmitConnection = (event) => {
     event.preventDefault();
     //console.log(inputRef.current.value);
+  };
+
+  const handleSubmitInscription = (event) => {
+    event.preventDefault();
+    console.log(event.target);
   };
 
   const handleDelete = (id) => {
@@ -52,12 +73,12 @@ function App() {
     <div>
       <Header />
       <Formulaire
-        handleSubmit={handleSubmit}
+        handleSubmit={handleSubmitConnection}
         actionDuFormulaire={"se connecter"}
         nomDuFormulaire={"connection"}
       />
       <Formulaire
-        handleSubmit={handleSubmit}
+        handleSubmit={handleSubmitInscription}
         actionDuFormulaire={"s'inscrire"}
         nomDuFormulaire={"inscription"}
       />

@@ -1,0 +1,41 @@
+li, #message {
+  background-color: #ffd7d7;
+  border: solid #fd2d01 4px;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 50px;
+  list-style-type: none;
+}
+
+#messageCreator {
+  font-size: 20px;
+}
+
+button {
+  margin: 0 15px;
+  background-color: #4e5166;
+  color: white;
+  font-size: 12px;
+  padding: 3px;
+}
+
+#likeButton {
+  background-color: #ffd7d7;
+  border: none;
+  color: #eee;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+#imagePost {
+  display: flex;
+  justify-content: center;
+}
+
+#imageInPost{
+  max-width: 400px;
+  max-height: 400px;
+  min-width: none;
+}
+

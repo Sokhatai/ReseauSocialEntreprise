@@ -1,7 +1,32 @@
-img {
-  width: 200px;
+#logo {
+  width: 20%;
+  max-width: 200px;
 }
 
-div {
-  overflow: hidden;
+.headerNav {
+  max-width: 150px;
+  min-width: 50px;
+  font-size: 22px;
+  float: right;
+  margin: 87px 2% 0px;
+  color: #fd2d01;
+}
+
+a {
+  text-decoration: none;
+  color: #fd2d01;
+}
+
+#logout{
+  font-size: 22px;
+  float: right;
+  max-width: 200px;
+  max-height: 100px;
+  margin: 82px 2% 0px;
+  background-color: #fd2d01;
+  border-color: #ffd7d7;
+}
+
+#logout :hover{
+  border-style: inset;
 }
